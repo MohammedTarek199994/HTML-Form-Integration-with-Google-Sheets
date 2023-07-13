@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Styling a SignUp Form</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="page2.html" />
+  </head>
+  <body>
+    <div class="signupFrm">
+      <div class="wrapper">
+        <form
+          class="form"
+          action="https://sheetdb.io/api/v1/g5z5y51mdxy7p"
+          method="post"
+          id="sheetdb-form">
+          <h1 class="title">Sign up</h1>
+
+          <div class="inputContainer">
+            <input
+              type="text"
+              class="input"
+              placeholder="email"
+              name="data[email]"
+              required />
+            <label for="" class="label">Email</label>
+          </div>
+
+          <div class="inputContainer">
+            <input
+              type="password"
+              class="input"
+              placeholder="password"
+              name="data[psw]"
+              required />
+            <label for="" class="label">Password</label>
+          </div>
+
+          <div class="inputContainer">
+            <input
+              type="password"
+              class="input"
+              placeholder="Repeat Password"
+              name="data[psw repeat]"
+              required />
+            <label for="" class="label">Confirm Password</label>
+          </div>
+
+          <input type="submit" class="submitBtn" value="Sign up" />
+        </form>
+      </div>
+    </div>
+    <script>
+      var form = document.getElementById("sheetdb-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(form.action, {
+          method: "POST",
+          body: new FormData(document.getElementById("sheetdb-form")),
+        })
+          .then((response) => response.json())
+          .then((html) => {
+            // you can put any JS code here
+            window.open("page2.html", "_blank");
+          });
+      });
+    </script>
+  </body>
+</html>
